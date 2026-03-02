@@ -1,0 +1,9 @@
+{
+  "github": {
+    "silent": true
+  },
+  "buildCommand": "pnpm build-storybook",
+  "outputDirectory": "storybook-static",
+  "cleanUrls": true,
+  "framework": "vite"
+}
