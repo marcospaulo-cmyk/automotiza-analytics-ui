@@ -1,0 +1,5 @@
+:root {
+  /* ── Shadows ───────────────────────────────── */
+  --shadow-default: 0 5px 20px rgba(6, 10, 14, 0.25);
+  --shadow-floating: 0 -10px 10px rgba(15, 25, 35, 0.25);
+}

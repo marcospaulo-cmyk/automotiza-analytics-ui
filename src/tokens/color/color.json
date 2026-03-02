@@ -1,0 +1,71 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "value": "#f12c4c",
+        "description": "Vermelho principal Blaze"
+      },
+      "hover": {
+        "value": "#cc2843",
+        "description": "Vermelho escuro para interação"
+      },
+      "accent": { "value": "#f9305b", "description": "Variação red-pink" }
+    },
+    "background": {
+      "main": {
+        "value": "#0f1923",
+        "description": "Fundo mestre da plataforma"
+      },
+      "secondary": {
+        "value": "#1a242d",
+        "description": "Fundo de cards e menus laterais"
+      },
+      "tertiary": {
+        "value": "#252f38",
+        "description": "Fundo de seções internas e tabelas"
+      },
+      "input": {
+        "value": "#131521",
+        "description": "Fundo padrão de campos de entrada"
+      },
+      "navbar-mobile": {
+        "value": "#010710",
+        "description": "Fundo da barra de navegação mobile"
+      }
+    },
+    "text": {
+      "primary": { "value": "#ffffff" },
+      "secondary": {
+        "value": "#bcbfc7",
+        "description": "Cinza claro para suporte"
+      },
+      "muted": {
+        "value": "#8c9099",
+        "description": "Cinza escuro para textos desativados"
+      },
+      "link": { "value": "#00b4ff" }
+    },
+    "status": {
+      "success": {
+        "value": "#06e385",
+        "description": "Verde para ganhos e vitórias"
+      },
+      "error": { "value": "#fa5252", "description": "Vermelho de erro — distinto do brand primary" },
+      "warning": { "value": "#c29640" },
+      "vip": {
+        "value": "#ffd764",
+        "description": "Dourado para status premium"
+      }
+    },
+    "verticals": {
+      "sports": {
+        "value": "#06e385",
+        "description": "Acento para a vertical de esportes"
+      },
+      "casino": {
+        "value": "#b46ff9",
+        "description": "Acento para a vertical de cassino"
+      }
+    }
+  }
+}

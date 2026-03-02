@@ -1,0 +1,23 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  line-height: 1;
+  user-select: none;
+}
+
+.disabled {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.required {
+  color: var(--color-status-error);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+}

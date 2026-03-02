@@ -1,0 +1,12 @@
+@import '../assets/fonts/fonts.css';
+@import './color/color.css';
+@import './typography/typography.css';
+@import './border/border.css';
+@import './layout/layout.css';
+@import './shadow/shadow.css';
+
+:root {
+  /* Transitions (gerais) */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+}

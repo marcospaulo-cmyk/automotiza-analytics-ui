@@ -1,0 +1,111 @@
+/* ── Card ─────────────────────────────────────── */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-elevated);
+  border-radius: var(--border-radius-default);
+  border: var(--border-width-thin) solid var(--border-color-default, rgba(255,255,255,0.06));
+  box-shadow: var(--shadow-default);
+  overflow: hidden;
+}
+
+/* ── Interactive ─────────────────────────────── */
+/*
+ * Padrão "stretched link": o card inteiro vira clicável colocando
+ * um <a> filho com position:absolute e inset:0 dentro de CardContent.
+ * O hover/focus são tratados no card root.
+ */
+
+.interactive {
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.interactive:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-floating);
+  transform: translateY(-1px);
+}
+
+/* Focus-within: quando o link filho recebe foco via teclado */
+.interactive:focus-within {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+/* ── Header ──────────────────────────────────── */
+
+.header {
+  display: grid;
+  /* Colunas: conteúdo ocupa o máximo, slot de ação fica no canto */
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 8px;
+  padding: 20px 20px 0;
+}
+
+/* Quando não há CardAction, o conteúdo ocupa as duas colunas */
+.header > *:only-child {
+  grid-column: 1 / -1;
+}
+
+/* ── Title ───────────────────────────────────── */
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  /* Garante que o título ocupa a primeira coluna do grid do header */
+  grid-column: 1;
+}
+
+/* ── Description ─────────────────────────────── */
+
+.description {
+  margin: 4px 0 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  grid-column: 1 / -1;
+}
+
+/* ── Action slot ─────────────────────────────── */
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* ── Content ─────────────────────────────────── */
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.flush {
+  padding: 0;
+}
+
+/* ── Footer ──────────────────────────────────── */
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  border-top: var(--border-width-thin) solid var(--border-color-default, rgba(255,255,255,0.06));
+}

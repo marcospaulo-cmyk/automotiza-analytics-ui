@@ -1,0 +1,11 @@
+:root {
+  /* ── Borders ───────────────────────────────── */
+  --border-radius-default: 4px;
+  --border-radius-pill: 32px;
+  --border-radius-circle: 50%;
+
+  --border-width-thin: 1px;
+  --border-width-active-indicator: 3px;
+
+  --border-color-default: #323b45;
+}

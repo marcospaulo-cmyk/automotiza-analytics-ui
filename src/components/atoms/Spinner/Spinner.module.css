@@ -1,0 +1,49 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Animation ───────────────────────────────── */
+
+@keyframes spin {
+  from { transform: rotate(-90deg); }
+  to   { transform: rotate(270deg); }
+}
+
+.spinner {
+  display: block;
+  flex-shrink: 0;
+  animation: spin 0.65s linear infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    transform: rotate(-90deg); /* static arc at top */
+  }
+}
+
+/* ── Sizes ───────────────────────────────────── */
+
+.xs { width: 12px; height: 12px; }
+.sm { width: 16px; height: 16px; }
+.md { width: 20px; height: 20px; }
+.lg { width: 24px; height: 24px; }
+.xl { width: 32px; height: 32px; }
+
+/* ── Screen reader only ──────────────────────── */
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

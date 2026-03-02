@@ -1,0 +1,6 @@
+{
+  "shadow": {
+    "default": { "value": "0 5px 20px rgba(6,10,14,.25)" },
+    "floating": { "value": "0 -10px 10px rgba(15,25,35,.25)" }
+  }
+}

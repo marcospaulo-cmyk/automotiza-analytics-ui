@@ -1,0 +1,53 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--border-radius-default);
+}
+
+.pill {
+  border-radius: var(--border-radius-pill);
+}
+
+/* ── Variants ────────────────────────────────── */
+.primary {
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-primary);
+}
+
+.success {
+  background-color: var(--color-status-success);
+  color: var(--color-background-main);
+}
+
+.error {
+  background-color: var(--color-status-error);
+  color: var(--color-text-primary);
+}
+
+.warning {
+  background-color: var(--color-status-warning);
+  color: var(--color-background-main);
+}
+
+.info {
+  background-color: var(--color-text-link);
+  color: var(--color-text-primary);
+}
+
+/* ── Sizes ───────────────────────────────────── */
+.sm {
+  padding: 2px 8px;
+  font-size: var(--font-size-xs);
+  height: 18px;
+}
+
+.md {
+  padding: 4px 12px;
+  font-size: var(--font-size-sm);
+  height: 24px;
+}

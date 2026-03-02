@@ -1,0 +1,118 @@
+/* ── Root ─────────────────────────────────────── */
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--border-radius-default);
+  border-left: 3px solid transparent;
+  font-family: var(--font-family-body);
+}
+
+/* ── Severity variants ───────────────────────── */
+
+.info {
+  background-color: color-mix(in srgb, var(--color-status-info, #4aa3e8) 12%, transparent);
+  border-left-color: var(--color-status-info, #4aa3e8);
+  color: var(--color-text-primary);
+}
+
+.info .icon {
+  color: var(--color-status-info, #4aa3e8);
+}
+
+.success {
+  background-color: color-mix(in srgb, var(--color-status-success) 12%, transparent);
+  border-left-color: var(--color-status-success);
+  color: var(--color-text-primary);
+}
+
+.success .icon {
+  color: var(--color-status-success);
+}
+
+.warning {
+  background-color: color-mix(in srgb, var(--color-status-warning) 12%, transparent);
+  border-left-color: var(--color-status-warning);
+  color: var(--color-text-primary);
+}
+
+.warning .icon {
+  color: var(--color-status-warning);
+}
+
+.error {
+  background-color: color-mix(in srgb, var(--color-status-error) 12%, transparent);
+  border-left-color: var(--color-status-error);
+  color: var(--color-text-primary);
+}
+
+.error .icon {
+  color: var(--color-status-error);
+}
+
+/* ── Icon slot ───────────────────────────────── */
+
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  margin-top: 1px; /* alinha opticamente com a primeira linha de texto */
+}
+
+/* ── Content ─────────────────────────────────── */
+
+.content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Sub-componentes de texto ────────────────── */
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* ── Dismiss button ──────────────────────────── */
+
+.dismiss {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 2px;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  border-radius: var(--border-radius-sm, 4px);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  margin-top: 1px;
+}
+
+.dismiss:hover {
+  color: var(--color-text-primary);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dismiss:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 1px;
+}

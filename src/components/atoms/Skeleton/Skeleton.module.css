@@ -1,0 +1,83 @@
+/* ── Base ─────────────────────────────────────── */
+
+.root {
+  display: block;
+  width: var(--sk-width, 100%);
+  height: var(--sk-height, 1em);
+  background-color: var(--color-background-elevated);
+  border-radius: var(--border-radius-default);
+  position: relative;
+  overflow: hidden;
+  /* Garante que a camada shimmer fica contida */
+  contain: strict;
+}
+
+/* ── Radius variants ─────────────────────────── */
+
+.pill   { border-radius: var(--border-radius-pill); }
+.circle { border-radius: var(--border-radius-circle); }
+
+/* ── Wave shimmer ────────────────────────────── */
+/*
+ * Técnica: pseudo-elemento ::after com gradiente translúcido
+ * animado via translateX para percorrer toda a largura.
+ * Roda na thread do compositor (transform), sem layout recalculation.
+ */
+
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(200%); }
+}
+
+.wave::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent           0%,
+    rgba(255,255,255,0.06) 35%,
+    rgba(255,255,255,0.14) 50%,
+    rgba(255,255,255,0.06) 65%,
+    transparent           100%
+  );
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+/* ── Pulse ───────────────────────────────────── */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.45; }
+}
+
+.pulse {
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* ── Reduced motion ──────────────────────────── */
+/*
+ * Não remove a animação — substitui wave por pulse suave
+ * para preservar a indicação de carregamento sem movimento.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .wave::after {
+    display: none;
+  }
+  .wave {
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  .pulse {
+    animation-duration: 2.4s;
+  }
+}
+
+/* ── Multi-line group ────────────────────────── */
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}

@@ -1,0 +1,16 @@
+{
+  "border": {
+    "radius": {
+      "default": { "value": "4px" },
+      "pill": { "value": "32px" },
+      "circle": { "value": "50%" }
+    },
+    "width": {
+      "thin": { "value": "1px" },
+      "active-indicator": { "value": "3px" }
+    },
+    "color": {
+      "default": { "value": "#323b45" }
+    }
+  }
+}

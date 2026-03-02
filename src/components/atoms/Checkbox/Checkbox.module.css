@@ -1,0 +1,76 @@
+.wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--layout-spacing-gap-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Hidden native input ─────────────────────── */
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ── Box ─────────────────────────────────────── */
+
+.box {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: var(--border-radius-default);
+  border: var(--border-width-thin) solid var(--border-color-default);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+  margin-top: 1px;
+}
+
+.input:checked + .box {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+
+/* ── Icons ───────────────────────────────────── */
+
+.check {
+  display: none;
+  width: 12px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.input:checked + .box .check {
+  display: block;
+}
+
+/* ── Inline label ────────────────────────────── */
+
+.label {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* ── Focus visible ───────────────────────────── */
+
+.input:focus-visible + .box {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}

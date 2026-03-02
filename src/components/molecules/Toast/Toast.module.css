@@ -1,0 +1,246 @@
+/* ── Keyframes ───────────────────────────────── */
+
+@keyframes toast-slide-in-right {
+  from { transform: translateX(calc(100% + 24px)); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toast-slide-in-left {
+  from { transform: translateX(calc(-100% - 24px)); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toast-slide-in-up {
+  from { transform: translateY(calc(100% + 24px)); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes toast-slide-in-down {
+  from { transform: translateY(calc(-100% - 24px)); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes toast-fade-out {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes toast-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Viewport (container fixo) ───────────────── */
+
+.viewport {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  pointer-events: none;
+  /* Limita a largura para não ocupar toda a tela em mobile */
+  max-width: min(100vw - 32px, 400px);
+  width: max-content;
+}
+
+/* Posições verticais */
+.top    { top: 0; }
+.bottom { bottom: 0; flex-direction: column-reverse; }
+
+/* Posições horizontais */
+.left   { left: 0; }
+.center { left: 50%; transform: translateX(-50%); }
+.right  { right: 0; }
+
+/* ── Toast individual ────────────────────────── */
+
+.toast {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--border-radius-default);
+  border: var(--border-width-thin) solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-floating);
+  background-color: var(--color-background-elevated);
+  pointer-events: all;
+  min-width: 280px;
+  max-width: 400px;
+  will-change: transform, opacity;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* ── Animações de entrada/saída ──────────────── */
+
+.enter {
+  animation: toast-slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* bottom-left e top-left entram da esquerda */
+.left .enter {
+  animation-name: toast-slide-in-left;
+}
+
+.center .enter {
+  animation-name: toast-slide-in-up;
+}
+
+.exit {
+  animation: toast-fade-out 0.25s ease forwards;
+}
+
+/* ── Empilhamento: toasts além do limite ficam menores ── */
+/*
+ * --toast-index: posição na pilha (0 = mais recente, visível)
+ * --toast-count: total de toasts visíveis
+ * Toasts .stacked ficam atrás com scale + opacity reduzidos
+ */
+
+.stacked {
+  transform: scale(calc(1 - var(--toast-index, 0) * 0.05));
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Severidades ─────────────────────────────── */
+
+.default {}
+
+.success {
+  border-left: 3px solid var(--color-status-success);
+}
+
+.success .icon {
+  color: var(--color-status-success);
+}
+
+.error {
+  border-left: 3px solid var(--color-status-error);
+}
+
+.error .icon {
+  color: var(--color-status-error);
+}
+
+.warning {
+  border-left: 3px solid var(--color-status-warning);
+}
+
+.warning .icon {
+  color: var(--color-status-warning);
+}
+
+.info {
+  border-left: 3px solid var(--color-status-info, #4aa3e8);
+}
+
+.info .icon {
+  color: var(--color-status-info, #4aa3e8);
+}
+
+/* ── Icon ────────────────────────────────────── */
+
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--color-text-muted);
+}
+
+.iconLoading {
+  color: var(--color-brand-primary);
+}
+
+/* ── Body ────────────────────────────────────── */
+
+.body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.message {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+.description {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ── Action button ───────────────────────────── */
+
+.actionBtn {
+  appearance: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  align-self: center;
+  transition: background-color var(--transition-fast);
+}
+
+.actionBtn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.actionBtn:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 1px;
+}
+
+/* ── Close button ────────────────────────────── */
+
+.closeBtn {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  border-radius: 4px;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  margin-top: 1px;
+}
+
+.closeBtn:hover {
+  color: var(--color-text-primary);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 1px;
+}
+
+/* ── Reduced motion ──────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .enter, .exit {
+    animation: none;
+    transition: opacity 0.15s ease;
+  }
+}

@@ -1,0 +1,64 @@
+/* ── SimpleGrid ──────────────────────────────── */
+
+.grid {
+  display: grid;
+  column-gap: var(--sg-gap-x, 16px);
+  row-gap: var(--sg-gap-y, 16px);
+}
+
+/* Colunas fixas (número definido) — via CSS vars + media queries */
+.colsFixed {
+  grid-template-columns: repeat(var(--sg-cols, 1), minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .colsFixed {
+    grid-template-columns: repeat(var(--sg-cols-sm, var(--sg-cols, 1)), minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .colsFixed {
+    grid-template-columns: repeat(var(--sg-cols-md, var(--sg-cols-sm, var(--sg-cols, 1))), minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .colsFixed {
+    grid-template-columns: repeat(var(--sg-cols-lg, var(--sg-cols-md, var(--sg-cols-sm, var(--sg-cols, 1)))), minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .colsFixed {
+    grid-template-columns: repeat(var(--sg-cols-xl, var(--sg-cols-lg, var(--sg-cols-md, var(--sg-cols-sm, var(--sg-cols, 1))))), minmax(0, 1fr));
+  }
+}
+
+/* Colunas automáticas (auto-fill / auto-fit) */
+.colsAuto {
+  grid-template-columns: repeat(
+    var(--sg-auto-flow, auto-fill),
+    minmax(var(--sg-min-col, 200px), 1fr)
+  );
+}
+
+/* ── Stack ───────────────────────────────────── */
+
+.stack {
+  display: flex;
+  flex-direction: var(--stack-direction, column);
+  gap: var(--stack-gap, 16px);
+  align-items: var(--stack-align);
+  justify-content: var(--stack-justify);
+  flex-wrap: var(--stack-wrap, nowrap);
+}
+
+/* ── Container ───────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, var(--layout-width-max-container));
+  margin-inline: auto;
+  padding-inline: var(--container-px, 16px);
+}

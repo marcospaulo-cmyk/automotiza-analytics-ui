@@ -1,0 +1,48 @@
+/* ── Horizontal (default) ────────────────────── */
+
+.divider {
+  display: block;
+  border: none;
+  border-top: var(--border-width-thin) solid var(--border-color-default);
+  width: 100%;
+  margin: 0;
+}
+
+/* ── Vertical ────────────────────────────────── */
+
+.vertical {
+  display: block;
+  border: none;
+  border-left: var(--border-width-thin) solid var(--border-color-default);
+  width: 1px;
+  height: 100%;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+/* ── With label ──────────────────────────────── */
+
+.withLabel {
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.withLabel::before,
+.withLabel::after {
+  content: '';
+  flex: 1;
+  height: var(--border-width-thin);
+  background-color: var(--border-color-default);
+}
+
+.labelText {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

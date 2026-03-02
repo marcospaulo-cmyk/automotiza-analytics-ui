@@ -1,0 +1,13 @@
+:root {
+  /* ── Layout ────────────────────────────────── */
+  --layout-width-sidebar: 340px;
+  --layout-width-max-container: 1072px;
+
+  --layout-height-header-desktop: 72px;
+  --layout-height-navbar-mobile: 63px;
+  --layout-height-input-default: 48px;
+
+  --layout-spacing-gap-sm: 0.5rem;
+  --layout-spacing-gap-md: 1rem;
+  --layout-spacing-padding-container: 1.5rem;
+}

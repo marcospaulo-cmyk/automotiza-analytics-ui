@@ -1,0 +1,18 @@
+{
+  "layout": {
+    "width": {
+      "sidebar": { "value": "340px" },
+      "max-container": { "value": "1072px" }
+    },
+    "height": {
+      "header-desktop": { "value": "72px" },
+      "navbar-mobile": { "value": "63px" },
+      "input-default": { "value": "48px" }
+    },
+    "spacing": {
+      "gap-sm": { "value": "8px" },
+      "gap-md": { "value": "16px" },
+      "padding-container": { "value": "24px" }
+    }
+  }
+}
